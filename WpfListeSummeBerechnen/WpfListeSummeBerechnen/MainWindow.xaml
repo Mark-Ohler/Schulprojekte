@@ -1,0 +1,66 @@
+﻿<Window x:Class="WpfListeSummeBerechnen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfListeSummeBerechnen"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="624" Width="1122">
+    <Grid ShowGridLines="True">
+
+        <!--Layout für äußeres Grid-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Grid für Eingabefelder-->
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Label Erstellen-->
+            <Label Grid.Row="1" Grid.Column="0" Content="Array Length" HorizontalAlignment="Right"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Limit" HorizontalAlignment="Right"/>
+
+
+            <!--Textboxen erstellen-->
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtArrayLength" Text="0" VerticalAlignment="Stretch" TextAlignment="Right" TabIndex="0" BorderThickness="1" BorderBrush="Black" FontSize="16" GotFocus="txtBoxGotFocus" LostFocus="txtBoxLostFocus"/>
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtLimit" Text="0" VerticalAlignment="Stretch" TextAlignment="Right" TabIndex="1" BorderThickness="1" BorderBrush="Black" FontSize="16" GotFocus="txtBoxGotFocus" LostFocus="txtBoxLostFocus"/>
+
+
+        </Grid>
+
+        <!--Grid für die Buttonzeile-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Buttons einfügen-->
+            <Button Grid.Column="0" x:Name="btnArrayFüllen" Content="Array füllen" Click="btnArrayFüllen_Click" />
+            <Button Grid.Column="1" x:Name="btnSummeBerechnen" Content="Summe" Click="btnSummeBerechnen_Click"/>
+            <Button Grid.Column="2" x:Name="btnMinBestimmen" Content="Min" Click="btnMinBestimmen_Click"/>
+            <Button Grid.Column="3" x:Name="btnMaxBestimmen" Content="Max" Click="btnMaxBestimmen_Click"/>
+            <Button Grid.Column="4" x:Name="btnAnzahlÜberLimit" Content="Anzahl ü. Limit" Click="btnAnzahlÜberLimit_Click"/>
+            <Button Grid.Column="5" x:Name="btnBeenden" Content="Beenden" Click="btnBeenden_Click"/>
+        </Grid>
+        <ListBox Grid.Row="2" x:Name="lbxVerlauf"/>
+    </Grid>
+</Window>
