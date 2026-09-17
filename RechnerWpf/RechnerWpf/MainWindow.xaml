@@ -1,0 +1,71 @@
+﻿<Window x:Class="RechnerWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RechnerWpf"
+        mc:Ignorable="d"
+        Title="RechnerWpf" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    
+    
+    <Grid ShowGridLines="True">
+        
+        <!--Layout für äußeres Grid-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/> 
+        </Grid.RowDefinitions>
+        
+        <!--Grid für Eingabefelder-->
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Zahl 1" HorizontalAlignment="Right"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Rechenart" HorizontalAlignment="Right"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Zahl 2" HorizontalAlignment="Right"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Ergebnis" HorizontalAlignment="Right"/>
+
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtZahl1" Text="0" VerticalAlignment="Center" TextAlignment="Right" TabIndex="0" GotFocus="txtZahl1_GotFocus" LostFocus="txtZahl1_LostFocus"/>
+            <ComboBox Grid.Row="2" Grid.Column="1" x:Name="cboRechenArt" Margin="0 3 0 3" TabIndex="1" HorizontalContentAlignment="Right">
+                <ComboBoxItem Content="+"/>
+                <ComboBoxItem Content="-"/>
+                <ComboBoxItem Content="*"/>
+                <ComboBoxItem Content="/"/>
+                <ComboBoxItem Content="%"/>
+            </ComboBox>
+            <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtZahl2" Text="0" VerticalAlignment="Center" TextAlignment="Right" TabIndex="2" LostFocus="txtZahl2_LostFocus" GotFocus="txtZahl2_GotFocus"/>
+            <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtErgebnis" Text="0" VerticalAlignment="Center" TextAlignment="Right" TabIndex="3" IsReadOnly="True"/>
+
+            
+            
+        </Grid>
+
+        <!--Grid für die Buttonzeile-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" x:Name="btnVerlaufLöschen" Content="Verlauf löschen" Click="btnVerlaufLöschen_Click"/>
+            <Button Grid.Column="1" x:Name="btnBerechnen" Content="Berechnen" Click="btnBerechnen_Click"/>
+            <Button Grid.Column="2" x:Name="btnBeenden" Content="Beenden" Click="btnBeenden_Click"/>
+        </Grid>
+        <ListBox Grid.Row="2" x:Name="lbxVerlauf"/>
+    </Grid>
+</Window>
